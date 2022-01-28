@@ -37,6 +37,7 @@ const ContactState = props => {
                 type: 'professional',
             },
         ],
+        current: null,
     };
 
     // state allows us to access anything in our state
@@ -55,8 +56,14 @@ const ContactState = props => {
     };
 
     // Set current contact
+    const setCurrent = contact => {
+        dispatch({ type: SET_CURRENT, payload: contact });
+    };
 
     // Clear current contact
+    const clearCurrent = () => {
+        dispatch({ type: CLEAR_CURRENT });
+    };
 
     // Update contact
 
@@ -66,7 +73,14 @@ const ContactState = props => {
 
     return (
         <ContactContext.Provider
-            value={{ contacts: state.contacts, addContact, deleteContact }}
+            value={{
+                contacts: state.contacts,
+                current: state.current,
+                addContact,
+                deleteContact,
+                setCurrent,
+                clearCurrent,
+            }}
         >
             {props.children}
         </ContactContext.Provider>
