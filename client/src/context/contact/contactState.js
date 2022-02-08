@@ -10,7 +10,7 @@ import {
     UPDATE_CONTACT,
     FILTER_CONTACTS,
     CLEAR_FILTER,
-} from '../type';
+} from '../../type';
 
 const ContactState = props => {
     const initialState = {
@@ -38,6 +38,7 @@ const ContactState = props => {
             },
         ],
         current: null,
+        filtered: null,
     };
 
     // state allows us to access anything in our state
